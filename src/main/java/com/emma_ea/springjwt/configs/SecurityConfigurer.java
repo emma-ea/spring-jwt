@@ -26,6 +26,7 @@ public class SecurityConfigurer {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
                 .authorizeRequests((auth) -> auth.anyRequest().authenticated())
+                .authorizeRequests((auth) -> auth.antMatchers("/login").permitAll())
                 .httpBasic(Customizer.withDefaults())
                 .build();
     }
