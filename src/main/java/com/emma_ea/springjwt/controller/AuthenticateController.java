@@ -2,7 +2,9 @@ package com.emma_ea.springjwt.controller;
 
 import com.emma_ea.springjwt.model.AuthRequest;
 import com.emma_ea.springjwt.model.AuthResponse;
+import com.emma_ea.springjwt.model.HttpResponse;
 import com.emma_ea.springjwt.service.AuthService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +21,7 @@ public class AuthenticateController {
     }
 
     @PostMapping
-    public AuthResponse login(@RequestBody AuthRequest request) {
+    public ResponseEntity<HttpResponse<AuthResponse>> login(@RequestBody AuthRequest request) {
         return service.login(request);
     }
 
